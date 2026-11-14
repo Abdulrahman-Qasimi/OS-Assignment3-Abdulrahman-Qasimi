@@ -32,11 +32,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [Abdulrahman AlQasimi} |
+| **Student ID** | [444050388] |
+| **University Email** | [444050388]@std.psau.edu.sa |
+| **GitHub Username** | [Abdulrahman-Qasimi] |
+| **Repository Link** | [https://github.com/Abdulrahman-Qasimi/OS-Assignment3-Abdulrahman-Qasimi] |
  
 ---
 
@@ -132,56 +132,56 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [11/13/2026 07:40 PM  ]
+**What I did**: Forked the starter repo, renamed it and set my id 
 
 **Details**:
-
+forked and used my university id and set my id in line 304 my output now has 11 process and a quantum of 4000ms and 3 cpus
 **Challenges**:
-
+understand the cod in general was hard 
 **Solution**:
-
+just read and just started with the features so i could understand 
 **Time spent**:
-
+5 min 
 ---
 
-### Entry 2 - [Date and Time]
+### Entry 2 - [11/13/2026 and 08:00 PM]
 **What I did**:
-
+Feature 1 and protected the ready queue with reentratLock
 **Details**:
-
+Added a reentrantLock in readyqueue and wrapped add() and poll() and processof() and snapshot() with look() try and finally unlock ()
 **Challenges**:
-
+wasn't hard there is similer to it in the lucter slides 
 **Solution**:
-
+used the slide of OS
 **Time spent**:
-
+25 min 
 ---
 
-### Entry 3 - [Date and Time]
+### Entry 3 - [11/14/2026 and 07:40 PM ]
 **What I did**:
-
+Feature 2 lock on the three shared counters 
 **Details**:
-
+Declared three locks for contextSwtich and completed and service time so independent  and wrap locks
 **Challenges**:
-
+how much of the locks i had to use  {} kept missing one in every block 
 **Solution**:
-
+I didn't rush and read carefully so i wouldn't miss more 
 **Time spent**:
-
+40  mins 
 ---
 
-### Entry 4 - [Date and Time]
+### Entry 4 - [11/14/20260 and 08:50]
 **What I did**:
-
+feature 3 replaced busy waiting with counting semaphore 
 **Details**:
-
+added semapohre readycount starts at 0 and used cpuworker waitForProcess and acquire 
 **Challenges**:
-
+i deleted more lins than i should so the code didn't work for a while 
 **Solution**:
-
+CTRL + Z untill i found what was wrong turned out to Thread thread = readyQueue.poll();
 **Time spent**:
-
+30 min
 ---
 
 ### Entry 5 - [Date and Time]
@@ -214,13 +214,13 @@
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [1.5 hours]
 
-**Most challenging part**:
+**Most challenging part**: the missing line in entery 4 
 
-**Most interesting learning**:
+**Most interesting learning**: the use of semaphore in real time 
 
-**What I would do differently next time**:
+**What I would do differently next time**: read carefully and slowly before deleting or adding codes so i wouldn't waste time fixing it 
 
 ---
 
@@ -240,15 +240,19 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
-
+[Several cpu threads sharing a queue and counters gives race conditions
+understand why realese total cpus is needed so the cpu shutdown 
+a semaphore replaces busy waiting because the thread sleeps instead of busywaiting 
+and carefully adding needed codes in a right place so it may brake if there is less than optimal try and lock .]
 ## Question 2: What was the most challenging part of this assignment?
 
 > 💡 **TIP:** Pick **one** specific challenge (understanding why the starter failed, choosing the lock granularity, the initial value of the semaphore, the shutdown of the CPUs, Git, the video) and say *why* it was hard.
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[getting the braces {} for try/finally blocks in every mothed in the right place 
+and racewindow.pause () stays inside the locked block 
+finding the right note to help solve my problem and slides .]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -256,7 +260,9 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[followed the lock pattern line by line and undo by undo
+compared counter values in the verification  block 
+read the notes and slides .]
 
 ## Question 4: Where can synchronization concepts be applied in real-world applications?
 
@@ -264,7 +270,9 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[a web server with thread pool pulling requests from a shared queue like a semaphore blocks idle workers 
+or a bank ticket system where there is a lok protect an account balance 
+or a database connection pool where the counting semaphore count the free resources .]
 
 ### Optional: What would you like to learn more about?
 
@@ -298,20 +306,31 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[running with my id 444050388 i've read the values and run it multiple times 
+and a step by step lost update with named cpu like one reads context switch and race window and the other reads old +1 so one increment is lost to not read the same one .]
 
 Verification block of the **original starter**:
 ```
-[Paste the verification block (or the exception/watchdog message) of the starter here]
+??? VERIFICATION (expected values are computed from YOUR seed) ???
+  Context switches (quanta executed)     expected 20       observed 0        ? MISMATCH
+  Completed processes                    expected 11       observed 0        ? MISMATCH
+  Total service time (ms)                expected 60538    observed 0        ? MISMATCH
+  Busy-waiting polls (must be 0)         expected 0        observed 0        ?
+  ? At least one check failed (see the ? lines above): a race condition or busy waiting is still present.
 ```
 
 Verification block of **my final version**:
 ```
-[Paste the verification block of your final version here (all lines ✔)]
+?? VERIFICATION (expected values are computed from YOUR seed) ???
+  Context switches (quanta executed)     expected 20       observed 20       ?
+  Completed processes                    expected 11       observed 11       ?
+  Total service time (ms)                expected 60538    observed 60538    ?
+  Busy-waiting polls (must be 0)         expected 0        observed 0        ?
+  ? All shared values are consistent.[Paste the verification block of your final version here (all lines ✔)][Paste the verification block of your final version here (all lines ✔)]
 ```
 
 **Explanation of the timeline:**
-[Explain the lost update step by step.]
+[two quanta ran so it be 7 but in ends at 6 so old + 1 .]
 
 ## Question 2: Critical Sections and Lock Granularity
 
@@ -321,10 +340,11 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[ready queue has lock for add poll and processof and snapshot 
+and we have statics contextswtich and complted process and service time .]
 
 | Critical section (variable / method) | Lock used | Why it needs protection |
-|---|---|---|
+|add|poll|processof|
 | [e.g., `ReadyQueue.poll()`] | [lock name] | [reason] |
 | [...] | [...] | [...] |
 
@@ -336,7 +356,7 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[busy wait keep waking up the cpu and cheacking an empty queue unlike the semaphore the wait for queue to has work then the cpu works only when there is task to be done and saves energy and cpu time ]
 
 ## Question 4: Classical Problems and Deadlock
 
@@ -347,24 +367,30 @@ Verification block of **my final version**:
 **Your Answer:** *(3-5 sentences)*
 
 **Classical problem and roles**:
-[Name the problem; who is the producer, who is the consumer?]
+[producer and consumer problem 
+producer put item in the buffer using add() and its called by the main thread
+consumers take items out the taking process through waitforprocess and poll ]
 
 **Semaphores for a bounded queue (name and initial value)**:
-[Name the three semaphores and their initial values.]
+[mutex and it starts at 1 and empty take the value size of the queue and full it starts at 0 
+so prducer wait(empty0 the wait(mutex) and signal(mutx) signal(full)
+consumer wait(full) and wait(mutex) and signal(mutex) and signal(empty) .]
 
 **Deadlock scenario and prevention**:
-[Describe the scenario and the necessary condition you would break.]
+[we need to remove and make sure these four are not met mutual exclusion and hold and wait and no preemption and circular wait so
+so using the semaphore cuts hold and wait and mutal exclusoin and thats a way of prevention 
+like the philosophers and chopstick if only one can take the one o left that would make a hold and wait and there is not mutual exclusion but make every 1,3,5, takes the left but the other even number take the right chopstick and drop before picking up make sure the other chopstick is available before requestion the other chopstick and that kills hold and wait .]
 
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
+1.race contion
+2.counting in semaphore 
+3.ready queue cpu producer and consumer problem 
 
 **Concepts I need to study more:**
-1.
-2.
+1.ReentrantLock
+2.Synchronization
 
 ---
 
